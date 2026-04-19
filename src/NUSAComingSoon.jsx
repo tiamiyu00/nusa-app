@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import logo from './assets/nusa-logo.png';
-import droneBg from './assets/hero.png';
+import bgImage from './assets/BG.jpg';
 
 const STYLES = `
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -73,6 +73,7 @@ const STYLES = `
   .fu4 { animation: fadeUp .8s ease both; animation-delay: .85s; }
   .fu5 { animation: fadeUp .8s ease both; animation-delay: 1.1s; }
   .fu6 { animation: fadeUp .8s ease both; animation-delay: 1.35s; }
+  .fu0 { animation: fadeUp .8s ease both; animation-delay: 0s; }
 
   .hex { clip-path: polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%); }
 
@@ -377,13 +378,8 @@ export default function NUSAComingSoon() {
       <nav className="glass" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
         padding: '0 40px', height: 70,
-        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+        display: 'flex', alignItems: 'center', justifyContent: 'center',
       }}>
-        {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: 'auto', height: 48, display: 'block' }} />
-        </div>
-
         {/* Nav links — desktop */}
         <div className="nav-links" style={{ display: 'flex', gap: 36 }}>
           <a href="#hero"      className="nav-link">HOME</a>
@@ -399,12 +395,23 @@ export default function NUSAComingSoon() {
           position: 'relative', zIndex: 1, minHeight: '100vh',
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           textAlign: 'center', padding: '110px 24px 80px', overflow: 'hidden',
-          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(234,255,236,0.92) 100%), url(${droneBg})`,
+        }}
+      >
+        {/* Background image with blur */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: -1,
+          backgroundImage: `url(${bgImage})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
-        }}
-      >
+          filter: 'blur(1px)',
+        }} />
+
+        {/* Gradient overlay */}
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: -1,
+          background: 'linear-gradient(180deg, rgba(255,255,255,0.75) 0%, rgba(234,255,236,0.72) 100%)',
+        }} />
         {/* Decorative floating hexagons */}
         <Hexagon size={100} opacity={.12} borderOpacity={.28} className="hex float-a" style={{ position: 'absolute', top: '12%', left: '4%' }} />
         <Hexagon size={160} opacity={.07} borderOpacity={.18} className="hex float-b" style={{ position: 'absolute', top: '18%', right: '5%' }} />
@@ -421,6 +428,11 @@ export default function NUSAComingSoon() {
           background: 'radial-gradient(circle, rgba(57,255,20,.08) 0%, transparent 70%)',
           pointerEvents: 'none',
         }} />
+
+        {/* Logo centered at top */}
+        <div className="fu0" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', marginBottom: 42 }}>
+          <img src={logo} alt="NUSA logo" style={{ maxWidth: 250, width: '100%', height: 'auto', display: 'block' }} />
+        </div>
 
         {/* Top tagline */}
         <div className="fu1" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
@@ -646,17 +658,11 @@ export default function NUSAComingSoon() {
         borderTop: '1px solid rgba(57,255,20,.18)',
         padding: '24px 40px',
         display: 'flex', alignItems: 'center',
-        justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
+        justifyContent: 'center', flexWrap: 'wrap', gap: 16,
       }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: '100%', height: 'auto' }} />
-        </div>
-
         <p style={{ color: '#0a0e1a', fontSize: 11, letterSpacing: 1, textAlign: 'center' }}>
           © 2026 Nigeria Unmanned Systems &amp; Robotics Association. All rights reserved.
         </p>
-
-        <HexDots count={3} size={10} />
       </footer>
     </div>
   );
