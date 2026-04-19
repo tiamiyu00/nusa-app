@@ -381,7 +381,7 @@ export default function NUSAComingSoon() {
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: '100%', height: 'auto' }} />
+          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: 'auto', height: 48, display: 'block' }} />
         </div>
 
         {/* Nav links — desktop */}
@@ -437,7 +437,7 @@ export default function NUSAComingSoon() {
             color: '#0a0e1a', letterSpacing: 2, fontSize: 15,
             fontWeight: 700, marginBottom: 24, fontFamily: "'Inter', sans-serif", textTransform: 'uppercase',
           }}>
-            Then it nigerian unmanned systems and robotics association
+            NIGERIAN UNMANNED SYSTEMS AND ROBOTICS ASSOCIATION
           </p>
         </div>
 
