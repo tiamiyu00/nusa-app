@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 120" role="img" aria-label="NUSA logo">
+  <defs>
+    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7CFF2F" />
+      <stop offset="100%" stop-color="#2CCF00" />
+    </linearGradient>
+  </defs>
+  <g fill="none" fill-rule="evenodd">
+    <g transform="translate(0 10)">
+      <polygon fill="url(#greenGlow)" points="24 0 58 18 58 54 24 72 -10 54 -10 18" />
+      <polygon fill="url(#greenGlow)" transform="translate(90 0)" points="24 0 58 18 58 54 24 72 -10 54 -10 18" />
+      <polygon fill="url(#greenGlow)" transform="translate(45 60)" points="24 0 58 18 58 54 24 72 -10 54 -10 18" />
+      <g transform="translate(4 18)" fill="#0a0e1a">
+        <rect x="8" y="18" width="20" height="10" rx="3" />
+        <circle cx="15" cy="31" r="3" />
+        <circle cx="33" cy="31" r="3" />
+        <path d="M20 20 L22 12 L28 12 L30 20" stroke="#0a0e1a" stroke-width="2" fill="none" />
+      </g>
+      <g transform="translate(94 14)" fill="none" stroke="#0a0e1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 40 L20 20 L40 20 L50 40" />
+        <path d="M20 20 L20 10" />
+        <path d="M40 20 L40 10" />
+        <circle cx="25" cy="28" r="5" fill="#0a0e1a" />
+      </g>
+      <g transform="translate(40 72)" fill="#0a0e1a">
+        <path d="M20 12 C14 12 10 15 10 20 C10 25 14 28 20 28 C26 28 30 25 30 20 C30 15 26 12 20 12 Z" />
+        <path d="M20 20 L20 34" stroke="#0a0e1a" stroke-width="3" />
+        <path d="M12 12 C8 16 8 24 12 28" stroke="#0a0e1a" stroke-width="3" fill="none" />
+        <path d="M28 12 C32 16 32 24 28 28" stroke="#0a0e1a" stroke-width="3" fill="none" />
+      </g>
+    </g>
+    <text x="170" y="50" font-family="Inter, sans-serif" font-size="60" font-weight="900" fill="#0a0e1a">NUSA</text>
+    <line x1="170" y1="54" x2="412" y2="54" stroke="#0a0e1a" stroke-width="6" />
+    <text x="170" y="85" font-family="Inter, sans-serif" font-size="16" font-weight="600" fill="#0a0e1a">NIGERIA UNMANNED SYSTEMS & ROBOTICS ASSOCIATION</text>
+  </g>
+</svg>

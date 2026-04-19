@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-
-const LAUNCH_DATE = new Date('2026-07-18T00:00:00');
+import logo from './assets/nusa-logo.png';
+import droneBg from './assets/hero.png';
 
 const STYLES = `
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
@@ -88,12 +88,12 @@ const STYLES = `
   }
 
   .shimmer-heading {
-    background: linear-gradient(90deg, #fff 20%, var(--green) 40%, #fff 60%, var(--green) 80%, #fff 100%);
-    background-size: 300% auto;
+    background: linear-gradient(90deg, #111 0%, #0a0e1a 50%, #111 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    animation: shimmer 5s linear infinite;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
   }
 
   .countdown-card {
@@ -103,11 +103,11 @@ const STYLES = `
   .count-num { animation: countFlip .3s ease both; }
 
   .nav-link {
-    color: #9ca3af;
+    color: #0a0e1a;
     text-decoration: none;
     font-size: 12px;
     letter-spacing: 2px;
-    font-weight: 600;
+    font-weight: 700;
     transition: color .25s;
     position: relative;
   }
@@ -263,31 +263,11 @@ const SocialIcon = ({ href = '#', label, path }) => (
   </a>
 );
 
-const pad = n => String(n ?? 0).padStart(2, '0');
-
 export default function NUSAComingSoon() {
   const canvasRef = useRef(null);
-  const [time, setTime] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 });
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle | success
   const [menuOpen, setMenuOpen] = useState(false);
-
-  /* ---------- countdown ---------- */
-  useEffect(() => {
-    const tick = () => {
-      const diff = LAUNCH_DATE - Date.now();
-      if (diff <= 0) return;
-      setTime({
-        days:    Math.floor(diff / 864e5),
-        hours:   Math.floor((diff % 864e5) / 36e5),
-        minutes: Math.floor((diff % 36e5) / 6e4),
-        seconds: Math.floor((diff % 6e4) / 1e3),
-      });
-    };
-    tick();
-    const id = setInterval(tick, 1000);
-    return () => clearInterval(id);
-  }, []);
 
   /* ---------- particle canvas ---------- */
   useEffect(() => {
@@ -369,7 +349,7 @@ export default function NUSAComingSoon() {
   ];
 
   return (
-    <div style={{ fontFamily: "'Inter', sans-serif", background: '#0a0e1a', minHeight: '100vh', color: '#fff', position: 'relative' }}>
+    <div style={{ fontFamily: "'Inter', sans-serif", background: 'linear-gradient(180deg, #f8fff4 0%, #e9ffe7 46%, #effcf4 100%)', minHeight: '100vh', color: '#0a0e1a', position: 'relative' }}>
       <style dangerouslySetInnerHTML={{ __html: STYLES }} />
 
       {/* ── Particle canvas ── */}
@@ -396,21 +376,12 @@ export default function NUSAComingSoon() {
       {/* ════════════════════ NAVBAR ════════════════════ */}
       <nav className="glass" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
-        padding: '0 40px', height: 68,
+        padding: '0 40px', height: 70,
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-          <div style={{ position: 'relative', width: 36, height: 36 }}>
-            <div className="hex" style={{ width: 36, height: 36, background: '#39FF14', position: 'absolute' }} />
-            <div className="hex" style={{ width: 24, height: 24, background: '#0a0e1a', position: 'absolute', top: 6, left: 6 }} />
-          </div>
-          <span style={{
-            fontFamily: "'Orbitron', sans-serif", fontSize: 18,
-            fontWeight: 900, letterSpacing: 4, color: '#fff',
-          }}>
-            NUSA
-          </span>
+          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: '100%', height: 'auto' }} />
         </div>
 
         {/* Nav links — desktop */}
@@ -428,6 +399,10 @@ export default function NUSAComingSoon() {
           position: 'relative', zIndex: 1, minHeight: '100vh',
           display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
           textAlign: 'center', padding: '110px 24px 80px', overflow: 'hidden',
+          backgroundImage: `linear-gradient(180deg, rgba(255,255,255,0.95) 0%, rgba(234,255,236,0.92) 100%), url(${droneBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
         }}
       >
         {/* Decorative floating hexagons */}
@@ -456,13 +431,13 @@ export default function NUSAComingSoon() {
           <LineAccent width={60} />
         </div>
 
-        {/* "OUR NEW SITE IS" */}
+        {/* Requested wording */}
         <div className="fu2">
           <p className="hero-tagline" style={{
-            color: '#9ca3af', letterSpacing: 7, fontSize: 13,
-            fontWeight: 300, marginBottom: 20, fontFamily: "'Inter', sans-serif",
+            color: '#0a0e1a', letterSpacing: 2, fontSize: 15,
+            fontWeight: 700, marginBottom: 24, fontFamily: "'Inter', sans-serif", textTransform: 'uppercase',
           }}>
-            OUR NEW SITE IS
+            Then it nigerian unmanned systems and robotics association
           </p>
         </div>
 
@@ -473,9 +448,10 @@ export default function NUSAComingSoon() {
             className="shimmer-heading"
             style={{
               fontFamily: "'Orbitron', sans-serif",
-              fontSize: 'clamp(44px, 10vw, 104px)',
-              fontWeight: 900, lineHeight: 1.05,
+              fontSize: 'clamp(56px, 10vw, 110px)',
+              fontWeight: 900, lineHeight: 1.02,
               letterSpacing: 'clamp(2px, 1vw, 8px)',
+              textShadow: '0 16px 40px rgba(0,0,0,0.12)',
             }}
           >
             COMING<br />SOON
@@ -485,49 +461,11 @@ export default function NUSAComingSoon() {
 
         {/* STAY TUNED */}
         <div className="fu4" style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 64 }}>
-          <div style={{ width: 50, height: 1, background: 'rgba(57,255,20,.4)' }} />
-          <span style={{ color: '#39FF14', letterSpacing: 9, fontSize: 12, fontWeight: 700, fontFamily: "'Orbitron', sans-serif" }}>
+          <div style={{ width: 50, height: 1, background: '#0a0e1a' }} />
+          <span style={{ color: '#0a0e1a', letterSpacing: 9, fontSize: 12, fontWeight: 800, fontFamily: "'Orbitron', sans-serif" }}>
             STAY TUNED
           </span>
-          <div style={{ width: 50, height: 1, background: 'rgba(57,255,20,.4)' }} />
-        </div>
-
-        {/* ── Countdown ── */}
-        <div className="fu5 countdown-grid" style={{ display: 'flex', gap: 18, flexWrap: 'wrap', justifyContent: 'center', marginBottom: 72 }}>
-          {[
-            { value: time.days,    label: 'DAYS' },
-            { value: time.hours,   label: 'HOURS' },
-            { value: time.minutes, label: 'MINUTES' },
-            { value: time.seconds, label: 'SECONDS' },
-          ].map(({ value, label }, i) => (
-            <div key={i} className="countdown-card glass" style={{
-              padding: '28px 26px', borderRadius: 14,
-              textAlign: 'center', minWidth: 110,
-              border: '1px solid rgba(57,255,20,.3)',
-              position: 'relative', overflow: 'hidden',
-            }}>
-              {/* Corner hex accents */}
-              <div className="hex" style={{ position: 'absolute', top: -8, left: -8, width: 20, height: 20, background: 'rgba(57,255,20,.25)' }} />
-              <div className="hex" style={{ position: 'absolute', bottom: -8, right: -8, width: 16, height: 16, background: 'rgba(57,255,20,.2)' }} />
-
-              <div
-                key={`${label}-${value}`}
-                className="count-num count-value"
-                style={{
-                  fontFamily: "'Orbitron', sans-serif",
-                  fontSize: 'clamp(36px, 5vw, 54px)',
-                  fontWeight: 900, color: '#39FF14',
-                  lineHeight: 1, textShadow: '0 0 30px rgba(57,255,20,.55)',
-                  animation: 'countFlip .25s ease both',
-                }}
-              >
-                {pad(value)}
-              </div>
-              <div style={{ color: '#6b7280', fontSize: 9, letterSpacing: 3, marginTop: 10, fontWeight: 700 }}>
-                {label}
-              </div>
-            </div>
-          ))}
+          <div style={{ width: 50, height: 1, background: '#0a0e1a' }} />
         </div>
 
         {/* Scroll indicator */}
@@ -704,23 +642,17 @@ export default function NUSAComingSoon() {
       {/* ════════════════════ FOOTER ════════════════════ */}
       <footer style={{
         position: 'relative', zIndex: 1,
-        background: '#050710',
-        borderTop: '1px solid rgba(57,255,20,.1)',
+        background: '#f4fff6',
+        borderTop: '1px solid rgba(57,255,20,.18)',
         padding: '24px 40px',
         display: 'flex', alignItems: 'center',
         justifyContent: 'space-between', flexWrap: 'wrap', gap: 16,
       }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <div style={{ position: 'relative', width: 26, height: 26 }}>
-            <div className="hex" style={{ width: 26, height: 26, background: '#39FF14', position: 'absolute' }} />
-            <div className="hex" style={{ width: 16, height: 16, background: '#050710', position: 'absolute', top: 5, left: 5 }} />
-          </div>
-          <span style={{ fontFamily: "'Orbitron', sans-serif", fontSize: 13, fontWeight: 900, letterSpacing: 4, color: '#fff' }}>
-            NUSA
-          </span>
+          <img src={logo} alt="NUSA logo" style={{ maxWidth: 220, width: '100%', height: 'auto' }} />
         </div>
 
-        <p style={{ color: '#374151', fontSize: 11, letterSpacing: 1, textAlign: 'center' }}>
+        <p style={{ color: '#0a0e1a', fontSize: 11, letterSpacing: 1, textAlign: 'center' }}>
           © 2026 Nigeria Unmanned Systems &amp; Robotics Association. All rights reserved.
         </p>
 
