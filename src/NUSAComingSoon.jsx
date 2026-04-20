@@ -378,13 +378,12 @@ export default function NUSAComingSoon() {
       <nav className="glass" style={{
         position: 'fixed', top: 0, left: 0, right: 0, zIndex: 1000,
         padding: '0 40px', height: 70,
-        display: 'flex', alignItems: 'center', justifyContent: 'center',
+        display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
         {/* Nav links — desktop */}
         <div className="nav-links" style={{ display: 'flex', gap: 36 }}>
-          <a href="#hero"      className="nav-link">HOME</a>
-          <a href="#about"     className="nav-link">ABOUT</a>
-          <a href="#subscribe" className="nav-link">SUBSCRIBE</a>
+          <a href="#hero"  className="nav-link">HOME</a>
+          <a href="#about" className="nav-link">ABOUT</a>
         </div>
       </nav>
 
