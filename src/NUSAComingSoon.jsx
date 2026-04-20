@@ -434,15 +434,6 @@ export default function NUSAComingSoon() {
           <img src={logo} alt="NUSA logo" style={{ maxWidth: 250, width: '100%', height: 'auto', display: 'block' }} />
         </div>
 
-        {/* Top tagline */}
-        <div className="fu1" style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 28 }}>
-          <LineAccent width={60} reversed />
-          <span style={{ color: '#39FF14', fontSize: 11, letterSpacing: 5, fontWeight: 700 }}>
-            NIGERIA UNMANNED SYSTEMS &amp; ROBOTICS
-          </span>
-          <LineAccent width={60} />
-        </div>
-
         {/* Requested wording */}
         <div className="fu2">
           <p className="hero-tagline" style={{
@@ -451,6 +442,15 @@ export default function NUSAComingSoon() {
           }}>
             NIGERIAN UNMANNED SYSTEMS AND ROBOTICS ASSOCIATION
           </p>
+        </div>
+
+        {/* New website text */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 24, justifyContent: 'center' }}>
+          <div style={{ width: 50, height: 1, background: '#0a0e1a' }} />
+          <span style={{ color: '#0a0e1a', letterSpacing: 5, fontSize: 12, fontWeight: 700, fontFamily: "'Orbitron', sans-serif", textTransform: 'uppercase' }}>
+            OUR NEW WEBSITE IS
+          </span>
+          <div style={{ width: 50, height: 1, background: '#0a0e1a' }} />
         </div>
 
         {/* COMING SOON with line accents */}
@@ -561,93 +561,6 @@ export default function NUSAComingSoon() {
               <p style={{ color: '#6b7280', fontSize: 13, lineHeight: 1.7 }}>{f.desc}</p>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* ════════════════════ SUBSCRIBE ════════════════════ */}
-      <section
-        id="subscribe"
-        style={{
-          position: 'relative', zIndex: 1,
-          background: '#0a0e1a',
-          padding: '110px 24px',
-          textAlign: 'center',
-          overflow: 'hidden',
-        }}
-      >
-        {/* Large bg hexagons */}
-        <div className="hex" style={{
-          position: 'absolute', top: -80, right: -80,
-          width: 280, height: 280,
-          background: 'rgba(57,255,20,.04)',
-          border: '2px solid rgba(57,255,20,.08)',
-        }} />
-        <div className="hex" style={{
-          position: 'absolute', bottom: -100, left: -70,
-          width: 320, height: 320,
-          background: 'rgba(57,255,20,.03)',
-          border: '2px solid rgba(57,255,20,.06)',
-        }} />
-
-        <div style={{ position: 'relative', zIndex: 1, maxWidth: 580, margin: '0 auto' }}>
-          <HexDots count={3} size={14} />
-
-          <h2 style={{
-            fontFamily: "'Orbitron', sans-serif",
-            fontSize: 'clamp(22px, 4vw, 36px)',
-            fontWeight: 900, color: '#fff',
-            letterSpacing: 3, marginTop: 32, marginBottom: 14,
-          }}>
-            STAY INFORMED
-          </h2>
-
-          <p style={{ color: '#6b7280', fontSize: 15, lineHeight: 1.8, marginBottom: 44 }}>
-            Subscribe to be the first to know about our launch
-          </p>
-
-          {status === 'success' ? (
-            <div style={{
-              background: 'rgba(57,255,20,.09)',
-              border: '1px solid rgba(57,255,20,.45)',
-              borderRadius: 12, padding: '28px 40px',
-              color: '#39FF14',
-              fontFamily: "'Orbitron', sans-serif",
-              letterSpacing: 3, fontSize: 13,
-              boxShadow: '0 0 30px rgba(57,255,20,.15)',
-            }}>
-              ✓ &nbsp; SUBSCRIBED SUCCESSFULLY!
-            </div>
-          ) : (
-            <form
-              className="subscribe-form"
-              onSubmit={handleSubscribe}
-              style={{ display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap' }}
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={e => setEmail(e.target.value)}
-                placeholder="Enter your email address"
-                required
-                className="email-input"
-                style={{ flex: 1, minWidth: 250, padding: '16px 20px', borderRadius: 8 }}
-              />
-              <button type="submit" className="sub-btn" style={{ padding: '16px 30px', borderRadius: 8 }}>
-                SUBSCRIBE NOW
-              </button>
-            </form>
-          )}
-
-          {/* Social links */}
-          <div style={{ display: 'flex', gap: 14, justifyContent: 'center', marginTop: 60 }}>
-            {socials.map((s, i) => (
-              <SocialIcon key={i} label={s.label} path={s.path} />
-            ))}
-          </div>
-
-          <p style={{ color: '#374151', fontSize: 11, letterSpacing: 2, marginTop: 28 }}>
-            FOLLOW US FOR UPDATES
-          </p>
         </div>
       </section>
 
